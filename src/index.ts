@@ -10,6 +10,7 @@ const architecture = JSON.parse(fs.readFileSync(archJsonPath, "utf8"));
 interface BaseService {
   name: string;
   description: string;
+  gitRepo: string;
 }
 
 interface Service extends BaseService {
@@ -61,6 +62,7 @@ async function getArch(): Promise<BasicArchitectureOverview> {
   const services = architecture.architecture.services.map((s: any) => ({
     name: s.name,
     description: s.description,
+    gitRepo: s.gitRepo,
   }));
   const databases = architecture.architecture.databases.map((d: any) => ({
     name: d.name,
