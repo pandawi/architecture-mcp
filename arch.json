@@ -4,6 +4,7 @@
         {
           "name": "ServiceItems",
           "description": "Handles items data, like listing items, adding new items, etc.",
+          "gitRepo": "https://github.com/pandawi/system.git",
           "connectedServices": ["ServiceUsers", "Database"],
           "apis": [
             {
@@ -41,6 +42,7 @@
         {
           "name": "ServiceUsers",
           "description": "Handles user data processing.",
+          "gitRepo": "https://github.com/pandawi/system.git",
           "connectedServices": ["Database"],
           "apis": [
             {
@@ -62,25 +64,11 @@
         {
             "name": "UI_DashboardService",
             "description": "Displays all the items and users data.",
+            "gitRepo": "https://github.com/pandawi/system.git",
             "connectedServices": ["ServiceItems"]
         }
       ],
-      "databases": [{
-        "name": "SystemDB",
-        "type": "PostgreSQL",
-        "description": "Stores users and items data.",
-        "connectedServices": ["ServiceItems", "ServiceUsers"],
-        "tables": [
-          {
-            "name": "users",
-            "columns": ["id", "name"]
-          },
-          {
-            "name": "items",
-            "columns": ["id", "name", "price", "sellerId"]
-          }
-        ]
-      }]
+      "databases": []
     }
   }
   
