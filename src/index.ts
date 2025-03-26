@@ -37,11 +37,6 @@ export interface Table {
     name: string;
     columns: string[];
 }
-  
-// interface Architecture {
-//     services: Service[];
-//     database: Database;
-// }
 
 interface BasicArchitectureOverview {
     services: BaseService[];
