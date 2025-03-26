@@ -86,7 +86,7 @@ function getSvcData(serviceName: string): Service | { error: string } {
 // Register arch tools
 server.tool(
   "get-architecture",
-  "Get all the architecture, and basic details about each service include name and description",
+  "Get all the architecture, and basic details about each service include name, description and git repo of the service code",
   async () => {
     const architecture = await getArch();
 
