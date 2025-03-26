@@ -7,7 +7,8 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "tsc && chmod 755 build/index.js"
+    "build": "tsc && chmod 755 build/index.js",
+    "postbuild": "cpx 'arch.json' 'build'"
   },
   "files": [
     "build"
@@ -26,6 +27,7 @@
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.7.0",
     "cors": "^2.8.5",
+    "cpx": "^1.5.0",
     "fs": "^0.0.1-security",
     "zod": "^3.24.2"
   }
