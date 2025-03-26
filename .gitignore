@@ -1,0 +1,9 @@
+node_modules
+build
+
+# IDE files
+.idea
+
+.DS_Store
+
+.vscode/settings.json

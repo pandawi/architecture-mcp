@@ -1,0 +1,63 @@
+{
+    "architecture": {
+      "services": [
+        {
+          "name": "ServiceA",
+          "description": "Handles user authentication and authorization.",
+          "connectedServices": ["ServiceB", "Database"],
+          "apis": [
+            {
+              "endpoint": "/login",
+              "method": "POST",
+              "description": "Authenticates users and returns a token.",
+              "dependencies": ["Database"],
+              "responseExample": {
+                "token": "abc123",
+                "expiresIn": 3600
+              }
+            },
+            {
+              "endpoint": "/register",
+              "method": "POST",
+              "description": "Registers a new user.",
+              "dependencies": ["Database"],
+              "responseExample": {
+                "message": "User created successfully"
+              }
+            }
+          ]
+        },
+        {
+          "name": "ServiceB",
+          "description": "Handles user data processing.",
+          "connectedServices": ["Database"],
+          "apis": [
+            {
+              "endpoint": "/getUserData",
+              "method": "GET",
+              "description": "Fetches user data.",
+              "dependencies": ["Database"],
+              "responseExample": {
+                "userId": 1,
+                "name": "John Doe",
+                "email": "john@example.com"
+              }
+            }
+          ]
+        }
+      ],
+      "databases": [{
+        "name": "UserDB",
+        "type": "PostgreSQL",
+        "description": "Stores user data.",
+        "connectedServices": ["ServiceA", "ServiceB"],
+        "tables": [
+          {
+            "name": "users",
+            "columns": ["id", "name", "email", "password"]
+          }
+        ]
+      }]
+    }
+  }
+  
